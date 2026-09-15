@@ -22,12 +22,6 @@
     nav.insertBefore(a,support||nav.querySelector('.navcta'));
   }
 
-  const phone=document.querySelector('.hero-art .phone');
-  if(phone){
-    phone.classList.add('real-phone');
-    phone.innerHTML='<div class="phone-top"></div><div class="real-app-screen"><img src="assets/app-map-real.webp" alt="Actual Roadside Strange app map showing nearby strange-case markers, search radius controls and app navigation"></div>';
-  }
-
   const origin=document.querySelector('.origin.shell');
   if(origin){
     const section=document.createElement('section');
