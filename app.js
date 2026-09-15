@@ -28,6 +28,17 @@
     heroArt.innerHTML=`<div class="rings"></div><img src="assets/app-map-screen.svg?v=20260915f" alt="Actual Roadside Strange app map showing nearby strange-case markers, search radius controls and app navigation" fetchpriority="high" style="position:relative;z-index:4;width:min(380px,82%);height:auto;display:block;object-fit:contain;border-radius:34px;border:1px solid rgba(242,235,223,.18);box-shadow:0 38px 85px rgba(0,0,0,.65),0 0 42px rgba(112,221,213,.10)"><div class="float f1">👻 <b>HAUNTING</b></div><div class="float f2">🛸 <b>UAP</b></div><div class="float f3">✦ <b>FOUND +1</b></div>`;
   }
 
+  const poster=document.querySelector('.poster');
+  if(poster && !poster.querySelector('.poster-real-screen')){
+    poster.style.position='relative';
+    const img=document.createElement('img');
+    img.className='poster-real-screen';
+    img.src='assets/app-map-screen.svg?v=20260915g';
+    img.alt='Actual Roadside Strange app screen shown inside the poster phone';
+    img.style.cssText='position:absolute;left:34.02%;top:27.33%;width:32.68%;height:46%;display:block;object-fit:fill;border-radius:9%;z-index:2;pointer-events:none;';
+    poster.appendChild(img);
+  }
+
   const origin=document.querySelector('.origin.shell');
   if(origin){
     const section=document.createElement('section');
