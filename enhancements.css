@@ -5,6 +5,10 @@
 .real-app-screen img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .real-phone .phone-top{z-index:7}
 .real-phone:after{content:"";position:absolute;inset:20px 12px auto;height:170px;z-index:5;border-radius:36px 36px 0 0;background:linear-gradient(115deg,rgba(255,255,255,.075),transparent 45%);pointer-events:none;opacity:.28}
+/* Clean up template-style numbering */
+.three article>span,.grid article>span{display:none}
+/* Keep the field-note label on the artwork instead of hanging outside it */
+.poster>span{left:14px;top:14px;writing-mode:horizontal-tb;transform:none;z-index:3;padding:6px 9px;border:1px solid rgba(242,235,223,.14);border-radius:999px;background:rgba(7,9,11,.82);color:#aeb5b3;letter-spacing:.16em;backdrop-filter:blur(7px)}
 .about{border-top:1px solid var(--line);background:linear-gradient(180deg,rgba(112,221,213,.025),transparent 24%,transparent)}
 .about-heading{max-width:940px;margin-bottom:44px}
 .about-heading h2{font-family:"Arial Narrow",Impact,Haettenschweiler,sans-serif;text-transform:uppercase;letter-spacing:-.025em;line-height:.92;margin:0;font-size:clamp(3.1rem,5.4vw,5.65rem)}
