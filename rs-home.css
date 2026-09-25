@@ -77,3 +77,46 @@
   .band-rs>div{padding:32px 20px;border-radius:20px}
   .band-rs p:not(.kicker){font-size:1.05rem}
 }
+
+.hero-stories-button{
+  position:absolute;
+  z-index:11;
+  left:2.7%;
+  top:64.8%;
+  width:12.8%;
+  min-width:140px;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(121,255,179,.9);
+  background:linear-gradient(180deg,rgba(22,32,40,.92),rgba(8,14,20,.96));
+  color:#f5f1ea;
+  font-size:clamp(12px,1vw,18px);
+  font-weight:900;
+  letter-spacing:.03em;
+  text-align:center;
+  box-shadow:0 0 22px rgba(77,255,156,.28),0 10px 24px rgba(0,0,0,.38);
+  text-shadow:0 1px 8px rgba(0,0,0,.85);
+  backdrop-filter:blur(5px);
+  transform:rotate(-1deg);
+}
+.hero-stories-button:hover{
+  border-color:#c7ffdb;
+  box-shadow:0 0 30px rgba(77,255,156,.45),0 10px 24px rgba(0,0,0,.42);
+  transform:rotate(-1deg) translateY(-1px);
+}
+.hero-stories-button:focus-visible{
+  outline:3px solid #72f1a7;
+  outline-offset:3px;
+}
+@media(max-width:700px){
+  .hero-stories-button{
+    left:2.2%;
+    top:64.2%;
+    width:15%;
+    min-width:0;
+    padding:7px 6px;
+    border-radius:8px;
+    font-size:clamp(7px,1.9vw,11px);
+    letter-spacing:0;
+  }
+}
