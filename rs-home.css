@@ -260,3 +260,17 @@
   .story-copy>span:last-child{padding-right:0;font-size:15px}
   .story-open{left:84px;right:auto;bottom:18px}
 }
+
+.hero-stories-main{
+  display:block;
+  font-weight:900;
+  line-height:1.05;
+}
+.hero-stories-sub{
+  display:block;
+  margin-top:4px;
+  font-size:.62em;
+  font-weight:700;
+  letter-spacing:.02em;
+  opacity:.86;
+}
