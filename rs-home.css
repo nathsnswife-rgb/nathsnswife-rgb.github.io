@@ -291,3 +291,36 @@
     border-radius:10px;
   }
 }
+
+.featured-state-link{color:#80f4ad;font-weight:800;text-decoration:none}
+.featured-state-link:hover{text-decoration:underline}
+.story-page-link{display:inline-block;margin-top:6px;color:#80f4ad;font-weight:800;text-decoration:none}
+.story-page-link:hover{text-decoration:underline}
+
+/* SEO landing pages */
+.seo-case-page{
+  min-height:100vh;
+  padding:130px max(22px,6vw) 70px;
+  background:
+    radial-gradient(circle at 15% 10%,rgba(68,255,157,.10),transparent 24%),
+    radial-gradient(circle at 85% 18%,rgba(153,65,255,.12),transparent 28%),
+    linear-gradient(180deg,#070a10 0%,#0b0d14 100%);
+}
+.seo-case,.seo-hub{max-width:980px;margin:0 auto}
+.seo-case h1,.seo-hub h1{margin:0 0 18px;color:#f5efe8;font-size:clamp(42px,7vw,78px);line-height:.98}
+.seo-case p,.seo-hub>p{color:#d2ccd0;font-size:18px;line-height:1.7}
+.seo-case-hero{display:block;width:100%;max-height:520px;object-fit:cover;border-radius:22px;margin:28px 0;border:1px solid rgba(255,255,255,.10);box-shadow:0 20px 45px rgba(0,0,0,.35)}
+.seo-case-note{margin-top:28px;padding:18px 20px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font-size:15px!important}
+.seo-related{max-width:980px;margin:46px auto 0}
+.seo-related h2{color:#f5efe8;margin-bottom:16px}
+.seo-related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.seo-related-grid a{display:flex;flex-direction:column;gap:4px;padding:18px;border-radius:14px;text-decoration:none;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.seo-related-grid strong{color:#f5efe8}
+.seo-related-grid span{color:#80f4ad;font-size:12px;font-weight:800;letter-spacing:.08em}
+.seo-hub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:34px}
+.seo-hub-card{overflow:hidden;border-radius:18px;text-decoration:none;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09)}
+.seo-hub-card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.seo-hub-card span,.seo-hub-card strong{display:block;padding-left:18px;padding-right:18px}
+.seo-hub-card span{padding-top:16px;color:#80f4ad;font-size:11px;font-weight:900;letter-spacing:.12em}
+.seo-hub-card strong{padding-top:6px;padding-bottom:20px;color:#f5efe8;font-size:24px}
+@media(max-width:760px){.seo-related-grid,.seo-hub-grid{grid-template-columns:1fr}.seo-case-page{padding-top:110px}}
