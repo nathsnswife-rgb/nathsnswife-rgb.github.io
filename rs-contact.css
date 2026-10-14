@@ -1,0 +1,80 @@
+/* Roadside Strange public contact invitation — shared by Home and Support */
+.rs-contact{
+  max-width:1000px;
+  margin:40px auto;
+  padding:clamp(28px,5vw,58px) clamp(18px,5vw,46px);
+  border:1px solid rgba(106,240,162,.42);
+  border-radius:24px;
+  background:radial-gradient(circle at 12% 2%,rgba(101,239,164,.12),transparent 42%),radial-gradient(circle at 88% 88%,rgba(157,85,219,.13),transparent 42%),#0c1019;
+  box-shadow:0 18px 55px rgba(0,0,0,.25);
+  text-align:center;
+  color:#f4efe8;
+}
+.rs-contact .rs-contact-eyebrow{
+  margin:0 0 14px;
+  color:#7ff2b4;
+  font-size:.77rem;
+  letter-spacing:.17em;
+  font-weight:800;
+  text-transform:uppercase;
+}
+.rs-contact .rs-contact-heading{
+  margin:0 0 18px;
+  color:#fff;
+  font-size:clamp(1.8rem,4.5vw,3rem);
+  line-height:1.12;
+  font-weight:900;
+}
+.rs-contact .rs-contact-copy{
+  margin:0 auto 14px;
+  max-width:760px;
+  color:#d7d9dc;
+  line-height:1.65;
+  font-size:clamp(1rem,1.7vw,1.14rem);
+}
+.rs-contact .rs-contact-copy strong{color:#fff}
+.rs-contact .rs-contact-number{
+  display:inline-block;
+  margin:18px 0 12px;
+  color:#8bf7b9;
+  font-size:clamp(1.9rem,6.4vw,3.7rem);
+  line-height:1.15;
+  letter-spacing:.015em;
+  font-weight:900;
+  text-decoration:none;
+  overflow-wrap:anywhere;
+}
+.rs-contact .rs-contact-number:hover,.rs-contact .rs-contact-number:focus-visible{color:#fff;text-decoration:underline}
+.rs-contact .rs-contact-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:10px auto 20px;
+}
+.rs-contact .rs-contact-action{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  min-width:145px;
+  padding:13px 22px;
+  border:1px solid #7ff2b4;
+  border-radius:999px;
+  background:#8bf7b9;
+  color:#08120f;
+  font-weight:900;
+  text-decoration:none;
+}
+.rs-contact .rs-contact-action.alt{background:transparent;color:#8bf7b9}
+.rs-contact .rs-contact-action:hover,.rs-contact .rs-contact-action:focus-visible{background:#fff;color:#08120f;border-color:#fff}
+.rs-contact .rs-contact-signoff{
+  margin:0;
+  color:#b7c9c3;
+  font-size:.95rem;
+  font-weight:700;
+}
+@media(max-width:460px){
+  .rs-contact{margin:24px 16px;padding:26px 17px;border-radius:18px}
+  .rs-contact .rs-contact-action{flex:1 1 120px;min-width:0}
+}
