@@ -74,8 +74,7 @@
 <script>
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.addEventListener('load', function () {
-    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
-    window.scrollTo(0,0);
+    if (!location.hash) window.scrollTo(0,0);
   });
 </script>
 </head>
@@ -116,6 +115,7 @@
         <a href="https://apps.apple.com/us/app/roadside-strange/id6807514720" target="_blank" rel="noopener noreferrer"> App Store</a>
         <a href="https://play.google.com/store/apps/details?id=com.divineapps.roadsidestrange" target="_blank" rel="noopener noreferrer">▶ Google Play</a>
       </div>
+      <small class="rs-free-note">Free to download on iPhone and Android. Explore the map for free.</small>
     </div>
   </section>
 
@@ -129,7 +129,7 @@
   </section>
 
   <section id="explore-strange" class="strange-stories" aria-labelledby="strange-stories-title">
-    <div class="strange-stories-head">
+    <div class="strange-stories-head" id="discover">
       <p class="kicker">BETTER STORIES. STRANGE PEOPLE. WEIRD PLACES.</p>
       <h2 id="strange-stories-title">Explore the Strange</h2>
       <p>Open a case and read the story behind the pin. Every week, Roadside Strange spotlights a new state with a fresh set of strange places, strange history and stories worth taking the long way home for. <a class="featured-state-link" href="arizona-strange.html">Explore this week&apos;s featured state: Arizona.</a></p>
@@ -227,6 +227,27 @@
     <article><b>🏚️</b><h3>Weird History</h3><p>Strange history, unusual places and roadside mysteries tied to real locations.</p></article>
   </section>
 
+  <section class="rs-info" aria-label="Roadside Strange app preview and Premium features">
+    <div class="rs-info-inner">
+      <figure class="rs-info-screen">
+        <img src="assets/app-map-screen.svg" alt="Roadside Strange app map showing nearby strange places" loading="lazy" width="240" height="497">
+        <figcaption>A look inside the Roadside Strange map.</figcaption>
+      </figure>
+      <div class="rs-info-copy">
+        <p class="kicker">THE STRANGE GOES WITH YOU</p>
+        <h2>Find the places. Hear the stories.</h2>
+        <p>Browse haunted places, cryptid reports, UFO sightings and strange history on the free map.</p>
+        <h3>Strange Drive</h3>
+        <p>Let Strange Drive tell you about nearby strange places as you travel. It's part of Premium, along with the Road Trip Planner.</p>
+        <article id="premium" class="rs-premium-card" aria-labelledby="rs-premium-title">
+          <h3 id="rs-premium-title">Go Premium</h3>
+          <p class="rs-premium-price">$4.49/month <span>or</span> $24.99/year</p>
+          <p>Unlock Road Trip Planner, Strange Drive and ad-free browsing. The app is free to download, and you can explore the map without Premium.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="rs-contact" aria-labelledby="rs-contact-title">
     <p class="rs-contact-eyebrow">ROADSIDE STRANGE • GET IN TOUCH</p>
     <h2 class="rs-contact-heading" id="rs-contact-title">Got a Strange Story? We Want to Hear It!</h2>
@@ -241,8 +262,9 @@
   </section>
 
   <section id="explore" class="download">
+    <span id="download" class="rs-section-anchor" aria-hidden="true"></span>
     <h2>Take the Weird Way Home.</h2>
-    <p>Roadside Strange is live now on iPhone and Android.</p>
+    <p>Roadside Strange is free to download on iPhone and Android. Browse the map for free; Premium unlocks Road Trip Planner and Strange Drive.</p>
     <div class="store-buttons">
       <a href="https://apps.apple.com/us/app/roadside-strange/id6807514720" target="_blank" rel="noopener noreferrer"> App Store</a>
       <a href="https://play.google.com/store/apps/details?id=com.divineapps.roadsidestrange" target="_blank" rel="noopener noreferrer">▶ Google Play</a>
