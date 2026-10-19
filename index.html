@@ -106,6 +106,57 @@
     </a>
   </section>
 
+  <section id="treasure-hunt" class="hunt-launch" aria-labelledby="hunt-title">
+    <style>
+      .hunt-launch{position:relative;isolation:isolate;overflow:hidden;text-align:center;padding:clamp(42px,7vw,96px) 18px;color:#fff4dd;background:radial-gradient(ellipse at 50% 15%,#6c411f 0%,transparent 55%),linear-gradient(130deg,#090d19,#1d1720 55%,#080c15);border-block:2px solid #a77638}
+      .hunt-launch:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.25;background:repeating-linear-gradient(35deg,transparent 0 56px,#c6984c 57px,transparent 58px),radial-gradient(circle at 15% 70%,#d69b4b,transparent 33%);pointer-events:none}
+      .hunt-launch .hunt-kicker{font-size:.78rem;letter-spacing:.3em;font-weight:800;color:#eac07e;text-transform:uppercase}
+      .hunt-launch h2{font-family:Georgia,serif;font-size:clamp(2.4rem,6vw,5.4rem);line-height:1.05;margin:12px 0;text-shadow:0 4px 22px #000}
+      .hunt-launch .hunt-prize{display:inline-block;margin:10px 0 20px;padding:9px 25px;background:#c79648;color:#160e0a;font-size:clamp(1.25rem,3vw,1.85rem);font-weight:900;letter-spacing:.08em;transform:rotate(-2deg)}
+      .hunt-launch .hunt-description{max-width:670px;margin:0 auto 25px;font-size:clamp(1rem,2vw,1.2rem);line-height:1.65}
+      .hunt-clock{display:flex;justify-content:center;gap:clamp(6px,2vw,18px);margin:22px auto;max-width:690px}
+      .hunt-clock .hunt-unit{flex:1;min-width:0;padding:16px 4px;background:linear-gradient(#201a17,#080808);border:1px solid #a87943;border-radius:10px;box-shadow:0 6px 22px #0008}
+      .hunt-clock .hunt-number{display:block;color:#ffd18a;font:700 clamp(1.6rem,5vw,3.7rem)/1.15 ui-monospace,monospace;font-variant-numeric:tabular-nums}
+      .hunt-clock .hunt-label{display:block;margin-top:8px;font-size:clamp(.58rem,1.4vw,.82rem);letter-spacing:.12em;text-transform:uppercase;color:#e9d6b7}
+      .hunt-launch .hunt-date{color:#e8bf82;font-weight:700;margin:15px 0}
+      .hunt-launch .hunt-link{display:inline-block;margin-top:14px;padding:12px 24px;border-radius:5px;background:#f0bb69;color:#16110d;text-decoration:none;font-weight:800}
+      .hunt-launch .hunt-link:hover,.hunt-launch .hunt-link:focus-visible{background:#ffe1a4}
+      .hunt-launch .hunt-foot{font-size:.8rem;color:#d1bd9f;margin:18px 0 0}
+      @media(max-width:390px){.hunt-clock{gap:5px}.hunt-clock .hunt-unit{padding:12px 2px}.hunt-clock .hunt-label{letter-spacing:0}}
+    </style>
+    <p class="hunt-kicker">Roadside Strange presents</p>
+    <h2 id="hunt-title">The Mystery Treasure Hunt</h2>
+    <div class="hunt-prize">$100 PRIZE</div>
+    <p class="hunt-description">Real places. Hidden clues. One secret word. Explore Roadside Strange cases, investigate the surroundings in Street View, and get ready to crack the mystery.</p>
+    <p class="hunt-date">The hunt begins November 15, 2026 · 12:00 PM Arizona time</p>
+    <div class="hunt-clock" id="hunt-clock" role="timer" aria-label="Time remaining until the mystery hunt begins">
+      <div class="hunt-unit"><span class="hunt-number" id="hunt-days">--</span><span class="hunt-label">Days</span></div>
+      <div class="hunt-unit"><span class="hunt-number" id="hunt-hours">--</span><span class="hunt-label">Hours</span></div>
+      <div class="hunt-unit"><span class="hunt-number" id="hunt-minutes">--</span><span class="hunt-label">Minutes</span></div>
+      <div class="hunt-unit"><span class="hunt-number" id="hunt-seconds">--</span><span class="hunt-label">Seconds</span></div>
+    </div>
+    <p id="hunt-status" aria-live="off">The countdown has begun. Are you ready?</p>
+    <a class="hunt-link" href="#explore">Get Roadside Strange Free</a>
+    <p class="hunt-foot">More details and official entry rules coming before launch. No travel required.</p>
+  </section>
+  <script>
+    (function(){
+      // November 15, 2026, 12:00 MST (Arizona, UTC-07:00).
+      var launch = Date.parse('2026-11-15T12:00:00-07:00');
+      var ids=['hunt-days','hunt-hours','hunt-minutes','hunt-seconds'];
+      var nodes=ids.map(function(id){return document.getElementById(id)});
+      var status=document.getElementById('hunt-status');
+      function tick(){
+        var remaining=Math.max(0,Math.floor((launch-Date.now())/1000));
+        var values=[Math.floor(remaining/86400),Math.floor(remaining%86400/3600),Math.floor(remaining%3600/60),remaining%60];
+        values.forEach(function(v,i){nodes[i].textContent=String(v).padStart(2,'0')});
+        if(remaining===0){status.textContent='The launch date has arrived! Hunt details will be announced here.';return true}
+        return false;
+      }
+      if(!tick()){var timer=setInterval(function(){if(tick())clearInterval(timer)},1000)}
+    })();
+  </script>
+
   <section id="roadside-strange" class="band band-rs">
     <div>
       <p class="kicker">LIVE ON iOS + ANDROID</p>
