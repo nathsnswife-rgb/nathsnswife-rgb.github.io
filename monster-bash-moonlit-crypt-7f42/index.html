@@ -66,6 +66,19 @@ footer{margin-top:48px;padding-top:24px;border-top:1px solid #3f3048;color:#aa9a
 @media(max-width:740px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.hero{padding-top:47px}.panel{padding:22px}.tile input{height:53px}.mini-steps span{font-size:.71rem}}
 @media(max-width:400px){main{padding:20px 12px 50px}.panel{padding:16px}.grid{gap:7px}.tile{padding:7px 5px}.tile input{font-size:1.4rem;height:46px}.tile label{font-size:.55rem}.top-tag{font-size:.58rem}button{width:100%}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
+
+.claim-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:26px}
+.claim-field{display:grid;gap:8px;text-align:left;font-size:.82rem;font-weight:800;color:#dfcfea;letter-spacing:.04em}
+.claim-field input{min-width:0;background:#100d17;border:1px solid #705781;border-radius:8px;color:#f9eafa;padding:14px 13px;font:inherit;font-size:1rem}
+.claim-field input:focus{outline:2px solid #d4a1ff;outline-offset:2px}
+.claim-field input::placeholder{color:#8c7b96}
+.claim-wide{grid-column:1/-1}
+.claim-check{display:flex;align-items:flex-start;gap:10px;font-size:.81rem;color:var(--muted);line-height:1.5;margin-top:12px}
+.claim-check input{margin-top:3px}
+.claim-note{margin:18px 0 0;color:var(--gold);font-size:.83rem}
+#claim-submit{border:1px solid #ae7bdf;background:linear-gradient(135deg,#d3a0ff,#9654d2);color:#150a1c}
+#claim-status{width:100%;margin-top:11px;text-align:center;color:var(--green);font-weight:800;min-height:24px}
+@media(max-width:550px){.claim-grid{grid-template-columns:1fr}.claim-wide{grid-column:1}}
 </style></head><body><main>
 <header class="top"><a class="brand" href="/roadside-strange.html">ROADSIDE <span>STRANGE</span></a><span class="top-tag">The hunt is on · Preview</span></header>
 <section class="hero">
@@ -87,6 +100,20 @@ footer{margin-top:48px;padding-top:24px;border-top:1px solid #3f3048;color:#aa9a
 <div class="rule">THE FINAL SEQUENCE</div>
 <div class="actions"><button id="submit" type="submit">✦ &nbsp; Check all 16 letters</button><button id="reset-test" type="button">↺ &nbsp; Reset test</button><div id="message" role="status" aria-live="polite"></div></div>
 </form></section>
+<section class="panel" aria-labelledby="claim-heading">
+<div class="section-head"><div class="rune" aria-hidden="true">✦ ◇ ✦</div><h2 id="claim-heading">Claim Your Discovery</h2>
+<p class="notes">Submit the final unscrambled word and your contact information. In the competition version, this form will email your entry directly to the organizer.</p></div>
+<form id="claim-test-form" autocomplete="off">
+<div class="claim-grid">
+<label class="claim-field">Your full name<input id="claim-name" type="text" maxlength="100" placeholder="Full name" required></label>
+<label class="claim-field">Your email address<input id="claim-email" type="email" maxlength="200" placeholder="you@example.com" required></label>
+<label class="claim-field claim-wide">Final hidden word<input id="claim-final" type="text" maxlength="40" placeholder="Enter the final word" spellcheck="false" required></label>
+</div>
+<label class="claim-check"><input type="checkbox" id="claim-consent" required> I agree my entry details can be used to administer the treasure hunt.</label>
+<p class="claim-note">PRIVATE PREVIEW: This is a visual test only. Nothing is emailed or saved when you submit here.</p>
+<div class="actions"><button id="claim-submit" type="submit">✦ &nbsp; Submit Final Answer</button><div id="claim-status" role="status" aria-live="polite"></div></div>
+</form>
+</section>
 <p class="notes below">Test mode only: attempts are saved in this browser. The public competition will use a private checker and stronger attempt tracking.</p>
 <footer>ROADSIDE STRANGE &nbsp; ✦ &nbsp; TAKE THE WEIRD WAY HOME</footer></main>
 <script>
@@ -145,6 +172,10 @@ document.getElementById('reset-test').addEventListener('click',()=>{
  paint();
  message.textContent='Test reset. You have 3 fresh guesses.';
  cells[0].input.focus();
+});
+document.getElementById('claim-test-form').addEventListener('submit',e=>{
+ e.preventDefault();
+ document.getElementById('claim-status').textContent='Preview complete — no email sent and no entry stored. The real form will send entries to the organizer.';
 });
 paint();
 })();
