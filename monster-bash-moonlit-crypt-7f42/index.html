@@ -8,16 +8,16 @@ main{max-width:930px;margin:auto;padding:32px 20px 75px}a{color:var(--green)}.br
 </style></head><body><main>
 <a class="brand" href="/roadside-strange.html">ROADSIDE <span>STRANGE</span></a>
 <div class="eyebrow">The 16-location treasure hunt</div><h1>DECODE THE <span>STRANGE.</span></h1>
-<p>Enter your 16 discovered letters in clue order, then check the <strong>whole sequence</strong>. We will not tell you which individual letters are right or wrong. You get <strong>three complete guesses per day</strong>.</p>
+<p>Enter your 16 discovered letters in clue order, then check the <strong>whole sequence</strong>. You'll see how many letters are in the wrong positions, but not which ones. You get <strong>three complete guesses per day</strong>.</p>
 <section class="panel" aria-label="Preview status" style="border-color:#a66bd1"><strong style="color:#c884ff">PRIVATE TEST MODE</strong><p style="margin-bottom:0">Try the 16-letter test answer <strong>COUNTERTERRORISM</strong>. This is a browser-only demonstration: the three-attempt limit can be reset by clearing local storage. The competition version will validate privately on the server.</p></section><section class="panel" aria-labelledby="checker-title"><h2 id="checker-title">Your discovered letters</h2>
-<p class="notes">All 16 boxes must be filled before you check. An incorrect attempt doesn't reveal which letters need changing.</p>
+<p class="notes">All 16 boxes must be filled before you check. The result counts incorrect positions without identifying them.</p>
 <form id="checker" autocomplete="off"><div id="letters" class="grid"></div><div class="actions"><button id="submit" type="submit">Check my letters</button><div id="message" role="status" aria-live="polite"></div></div></form>
 </section><p class="notes">TEST MODE: attempts are tracked only in this browser for now, not securely enforced. The live prize version will use a private server and player identity.</p>
 <footer>Roadside Strange · Take the weird way home.</footer></main>
 <script>
 (()=>{'use strict';
 const TEST_ANSWER='COUNTERTERRORISM'; // DEMO ONLY: final contest answer must never be in the page.
-const KEY='rs-hunt-whole-demo-v2';
+const KEY='rs-hunt-whole-demo-v3';
 const grid=document.getElementById('letters'),form=document.getElementById('checker');
 const button=document.getElementById('submit'),message=document.getElementById('message');
 const today=()=>new Date().toISOString().slice(0,10);
@@ -56,7 +56,7 @@ form.addEventListener('submit',e=>{
  if(value.length!==16){message.textContent='Enter all 16 letters before checking. No attempt used.';return}
  state.used++;
  if(value===TEST_ANSWER){state.solved=true;message.textContent='✓ Correct sequence! Test complete.'}
- else message.textContent='Not quite. No individual letters revealed. '+(3-state.used)+' guess(es) left today.';
+ else {const wrong=[...TEST_ANSWER].reduce((total,letter,i)=>total+(value[i]===letter?0:1),0);message.textContent=wrong+' of 16 letters '+(wrong===1?'is':'are')+' incorrect. '+(3-state.used)+' guess(es) left today.';}
  save();
  const success=state.solved;
  button.disabled=success||state.used>=3;
