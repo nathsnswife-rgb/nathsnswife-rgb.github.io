@@ -1,1 +1,14 @@
-const CACHE='monster-bash-discovery-ipad-v1';const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon-180.png'];self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()));});self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('monster-bash-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;const u=new URL(e.request.url);if(u.origin!==self.location.origin)return;e.respondWith(caches.match(e.request).then(hit=>hit||fetch(e.request).then(resp=>{if(resp.ok){const copy=resp.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));}return resp;})));});
+// Retire the old Monster Bash offline cache so the new checker preview loads.
+self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));
+self.addEventListener('activate',event=>event.waitUntil((async()=>{
+ const keys=await caches.keys();
+ await Promise.all(keys.filter(k=>k.startsWith('monster-bash-')).map(k=>caches.delete(k)));
+ await self.registration.unregister();
+ const clients=await self.clients.matchAll({type:'window',includeUncontrolled:true});
+ await Promise.all(clients.map(c=>c.navigate(c.url).catch(()=>{})));
+})()));
+self.addEventListener('fetch',event=>{
+ if(event.request.method==='GET'&&event.request.mode==='navigate'){
+  event.respondWith(fetch(event.request,{cache:'no-store'}).catch(()=>new Response('Please reconnect and reload the treasure hunt preview.',{status:503})));
+ }
+});
