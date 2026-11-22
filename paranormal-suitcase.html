@@ -100,6 +100,17 @@ section{position:relative}
 .halo:after{border-color:#a962ff2d}
 .hero h1:after{filter:blur(46px);opacity:.13}
 @media(max-width:700px){.smoke i{filter:blur(44px)}.hero:before{filter:blur(60px)}}
+
+/* Hero typography alignment and stronger headline presence */
+.herogrid>div:first-child{text-align:center}
+.hero h1{font-size:clamp(82px,10.8vw,178px);line-height:.85;letter-spacing:-.035em;text-align:center}
+.hero h1 span{display:block;text-align:center}
+.hero .intro{margin-left:auto;margin-right:auto;text-align:center}
+.hero .buttons{justify-content:center}
+.hero .micro{text-align:center}
+@media(max-width:700px){
+ .hero h1{font-size:clamp(60px,13.4vw,100px);line-height:.9;letter-spacing:-.04em}
+}
 </style></head>
 <body>
 <nav class="top"><div class="wrap topinner"><a class="wordmark" href="/">RS <b>✦</b> ROADSIDE STRANGE</a><div class="nav"><a href="#field-guide">THE TOOLS</a><a href="#integrity">OUR PROMISE</a><a href="#experience">THE EXPERIENCE</a><a class="get" href="#download">GET THE APP ↗</a></div></div></nav>
