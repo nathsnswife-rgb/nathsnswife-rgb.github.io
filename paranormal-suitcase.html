@@ -45,6 +45,36 @@ section{position:relative}
 .bottom h2{text-shadow:0 0 55px #ad32ff88}
 @media(prefers-reduced-motion:reduce){.hero:before,.heroart:before,.heroart:after,.halo,.phone{animation:none!important}*{scroll-behavior:auto!important}}
 @media(max-width:700px){.hero{padding:55px 0}.heroart{height:420px}.phone{width:220px}.halo{width:300px;height:300px}.shot img{height:300px}.shot:nth-child(even){transform:none}.shot:hover,.shot:nth-child(even):hover{transform:none}.toolgrid{gap:10px}.bottom{padding:90px 0}}
+
+/* Animated smoke plumes and illuminated hero title */
+.hero{isolation:isolate}
+.smoke-stage{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;mix-blend-mode:screen}
+.smoke{position:absolute;inset:0;opacity:.9}
+.smoke i{position:absolute;display:block;width:clamp(220px,36vw,650px);height:clamp(420px,65vw,900px);bottom:-65%;border-radius:45% 55% 48% 52%;filter:blur(36px);transform-origin:50% 100%;background:radial-gradient(ellipse at 45% 75%,transparent 20%,#10ff8b4d 31%,#08de7b12 45%,transparent 64%),radial-gradient(ellipse at 65% 45%,transparent 25%,#3bffb733 34%,transparent 58%);animation:smokerise 13s linear infinite}
+.smoke-green i{left:-10%}
+.smoke-purple i{right:-12%;background:radial-gradient(ellipse at 45% 75%,transparent 20%,#a02cff65 31%,#ac29ff16 45%,transparent 64%),radial-gradient(ellipse at 65% 45%,transparent 25%,#d055ff38 34%,transparent 58%);animation-name:smokerise-right}
+.smoke i:nth-child(2){animation-delay:-2.3s;animation-duration:16s;left:4%;scale:.8}
+.smoke i:nth-child(3){animation-delay:-5s;animation-duration:18s;left:18%;scale:.7}
+.smoke i:nth-child(4){animation-delay:-7.5s;animation-duration:14s;left:0%;scale:1.15}
+.smoke i:nth-child(5){animation-delay:-10s;animation-duration:19s;left:28%;scale:.65}
+.smoke i:nth-child(6){animation-delay:-12s;animation-duration:15s;left:8%;scale:.9}
+.smoke-purple i:nth-child(2){left:auto;right:5%}
+.smoke-purple i:nth-child(3){left:auto;right:22%}
+.smoke-purple i:nth-child(4){left:auto;right:-5%}
+.smoke-purple i:nth-child(5){left:auto;right:28%}
+.smoke-purple i:nth-child(6){left:auto;right:10%}
+@keyframes smokerise{0%{opacity:0;transform:translate3d(-5%,20%,0) rotate(-16deg) scale(.6)}16%{opacity:.7}65%{opacity:.65}100%{opacity:0;transform:translate3d(30%,-105%,0) rotate(28deg) scale(1.4)}}
+@keyframes smokerise-right{0%{opacity:0;transform:translate3d(5%,20%,0) rotate(16deg) scale(.6)}16%{opacity:.75}65%{opacity:.65}100%{opacity:0;transform:translate3d(-30%,-105%,0) rotate(-28deg) scale(1.4)}}
+.hero h1{position:relative;isolation:isolate;animation:titlearrive 1.4s cubic-bezier(.2,.7,.2,1) both}
+.hero h1,.hero h1 span{background:linear-gradient(105deg,#f7fff9 0%,#46ffad 19%,#effff9 34%,#a455ff 51%,#ffffff 64%,#54ffc4 80%,#e9bcff 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:neonflow 6s linear infinite,neonpulse 3.5s ease-in-out infinite alternate}
+.hero h1 span{display:block;animation-delay:-1.2s}
+.hero h1:after{content:"";position:absolute;inset:0;z-index:-1;filter:blur(22px);background:linear-gradient(90deg,#13ff8b55,#a13cff6b,#12ffb955);opacity:.35;animation:titleaura 4s ease-in-out infinite alternate;pointer-events:none}
+@keyframes neonflow{to{background-position:250% 0}}
+@keyframes neonpulse{0%{filter:drop-shadow(0 0 6px #4bffc49a) drop-shadow(0 0 16px #7c25ff70)}100%{filter:drop-shadow(0 0 13px #42ffb4) drop-shadow(0 0 35px #b142ffc9)}}
+@keyframes titleaura{to{opacity:.75;filter:blur(35px)}}
+@keyframes titlearrive{from{opacity:0;transform:translateY(25px) scale(.95);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+@media(max-width:700px){.smoke i{filter:blur(28px)}.smoke-stage{opacity:.8}.hero h1{font-size:clamp(68px,15vw,115px)}}
+@media(prefers-reduced-motion:reduce){.smoke i,.hero h1,.hero h1 span,.hero h1:after{animation:none!important}.smoke i{opacity:.2;transform:translateY(-35%)!important}}
 </style></head>
 <body>
 <nav class="top"><div class="wrap topinner"><a class="wordmark" href="/">RS <b>✦</b> ROADSIDE STRANGE</a><div class="nav"><a href="#field-guide">THE TOOLS</a><a href="#integrity">OUR PROMISE</a><a href="#experience">THE EXPERIENCE</a><a class="get" href="#download">GET THE APP ↗</a></div></div></nav>
